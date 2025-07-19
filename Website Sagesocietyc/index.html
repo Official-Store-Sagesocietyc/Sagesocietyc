@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SageSocietyc - Produk Apparel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      background-color: #1f1f1f;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    .produk-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .produk-card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      width: 220px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .produk-card:hover {
+      transform: scale(1.03);
+    }
+
+    .produk-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .produk-card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1em;
+    }
+
+    .produk-card p {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #4caf50;
+    }
+
+    .produk-card a {
+      display: inline-block;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9em;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SageSocietyc Official Store </h1>
+    <p>Apparel eksklusif - Follow @sagesocietyc</p>
+  </header>
+
+  <div class="produk-container" id="produkContainer">
+    
+  </div>
+
+  <footer>
+    &copy; 2025 SageSocietyc. All rights reserved.
+  </footer>
+
+  <script>
+    const produkData = [
+      {
+        nama: "T-shirt SageSocietyc",
+        harga: 130000,
+        gambar: "img/sagesosietyc.webp"
+      },
+      {
+        nama: "Hoodie After Death",
+        harga: 400000,
+        gambar: "img/hoodie-afterdeath.webp"
+      },
+      {
+        nama: "Tote bag",
+        harga: 80000,
+        gambar: "img/totebag.webp"
+      },
+      {
+        nama: "Hoodie & Baggy",
+        harga: 450000,
+        gambar: "img/paket-lengkap.webp"
+      },
+      {
+        nama: "T-shirt Cotton Combed 20s",
+        harga: 130000,
+        gambar: "img/baju-metal.webp"
+      },
+      {
+        nama: "T-shirt Cotton Combed 20s",
+        harga: 130000,
+        gambar: "img/baju-putih-kiss.webp"
+      }
+    ];
+
+    const noWhatsApp = "6283861715341"; 
+    const produkContainer = document.getElementById("produkContainer");
+
+    produkData.forEach((produk) => {
+      const card = document.createElement("div");
+      card.className = "produk-card";
+
+      const pesan = encodeURIComponent(`Halo! Saya ingin memesan produk:\n${produk.nama}\nHarga: Rp ${produk.harga.toLocaleString()}`);
+
+      card.innerHTML = `
+        <img src="${produk.gambar}" alt="${produk.nama}">
+        <h3>${produk.nama}</h3>
+        <p>Rp ${produk.harga.toLocaleString()}</p>
+        <a href="https://wa.me/${noWhatsApp}?text=${pesan}" target="_blank">Beli via WhatsApp</a>
+      `;
+
+      produkContainer.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
